@@ -115,4 +115,19 @@ nav ul li
     margin-left: 1vh;
 
 }
-
+a{
+    text-decoration: none;
+    color: #fff;
+}
+a:hover{
+    color: #f8fafc;
+}
+.bread-list li{
+    list-style-type: none;
+    font-size: 16px;
+}
+.bread-list li a{
+    color: #343a40;
+    list-style-type: none;
+    text-decoration: none;
+}
