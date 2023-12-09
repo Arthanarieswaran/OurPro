@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class FrontendController extends Controller
 {
@@ -29,6 +31,18 @@ class FrontendController extends Controller
         // login validation
         public function loginSubmit(Request $request){
                 return redirect()->back();
+        }
+
+
+        // register user
+        public function registerSubmit(Request $request){
+            $user=User::create([
+                'name'=>$request->name,
+                'email'=>$request->email,
+                'password'=>Hash::make($request->password),
+                // 'password'=>Hash::make($data['password']),
+            ]);
+            return redirect()->route('home');
         }
 
 }

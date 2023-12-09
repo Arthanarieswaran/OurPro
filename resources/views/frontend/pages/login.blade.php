@@ -23,61 +23,66 @@
 
 
     <!-- Shop Login -->
-    <section class="shop login section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 offset-lg-3 col-12">
-                    <div class="login-form">
-                        <h2>Login</h2>
-                        <p>Please register in order to checkout more quickly</p>
-                        <!-- Form -->
-                        <form class="form" method="post" action="{{route('login.submit')}}">
-                            @csrf
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label>Your Email<span>*</span></label>
-                                        <input type="email" name="email" placeholder="" required="required" value="{{old('email')}}">
-                                        @error('email')
-                                            <span class="text-danger">{{$message}}</span>
-                                        @enderror
+    <div>
+            <section class="log_reg_back">
+                <div class="container-flued ">
+                    <div class="log_reg_card mt-5 shadow bg-white  rounded d-flex flex-row">
+                        <div class="col-6">
+                             <img class="log_reg_img" src="{{asset('images/logreg.png')}}" alt="">
+                        </div>
+                        <div class="col-6 d-block flex-column ms-5 mt-5">
+                            {{-- login header divition --}}
+                                <div class="d-flex flex-row justify-content-center">
+                                    <h4 class="fw-bold ps-2">Sign In</h4>
+                                    <div class="socil_log">
+                                        <i class="fa-brands fa-facebook"></i>
+                                        <i class="fa-brands fa-x-twitter"></i>
                                     </div>
                                 </div>
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label>Your Password<span>*</span></label>
-                                        <input type="password" name="password" placeholder="" required="required" value="{{old('password')}}">
-                                        @error('password')
-                                            <span class="text-danger">{{$message}}</span>
-                                        @enderror
+                                {{-- login form --}}
+                                <form action="" class="log-reg-form">
+                                          {{-- email divition --}}
+                                        <div class="mt-3 mb-3">
+                                            <div class="form-group has-search">
+                                                <label for="email" class="form-label">Email</label>
+                                                <span class="fa fa-search form-control-feedback" id="email"></span>
+                                                <input type="text" class="form-control" placeholder="Email">
+                                            </div>
+                                        </div>
+                                        {{-- password divition --}}
+                                        <div class="mt-3 mb-3">
+                                            <div class="form-group has-search">
+                                                <label for="password" class="form-label">Password</label>
+                                                <span class="fa fa-key form-control-feedback" class="password"></span>
+                                                <input type="text" class="form-control" placeholder="Password">
+                                            </div>
+                                        </div>
+                                        {{-- button divition --}}
+                                        <div>
+                                            <div class="col-md-4 col-sm-6 mb-3 ">
+                                                <button class="btn  log-reg-btn">Sign In</button>
+                                            </div>
+                                        </div>
+                                </form>
+                                <div class="d-flex flex-row justify-content-center">
+                                    <div class="form-check float-left">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                          Remember Me
+                                        </label>
+                                    </div>
+                                    <div style="margin-left: 20vh;">
+                                        <a href="">Forget Password</a>
                                     </div>
                                 </div>
-                                <div class="col-12">
-                                    <div class="form-group login-btn">
-                                        <button class="btn" type="submit">Login</button>
-                                        {{-- <a href="{{route('register.form')}}" class="btn">Register</a>
-                                        OR
-                                        <a href="{{route('login.redirect','facebook')}}" class="btn btn-facebook"><i class="ti-facebook"></i></a>
-                                        <a href="{{route('login.redirect','github')}}" class="btn btn-github"><i class="ti-github"></i></a>
-                                        <a href="{{route('login.redirect','google')}}" class="btn btn-google"><i class="ti-google"></i></a> --}}
-
-                                    </div>
-                                    <div class="checkbox">
-                                        <label class="checkbox-inline" for="2"><input name="news" id="2" type="checkbox">Remember me</label>
-                                    </div>
-                                    @if (Route::has('password.request'))
-                                        <a class="lost-pass" href="{{ route('password.reset') }}">
-                                            Lost your password?
-                                        </a>
-                                    @endif
+                                <div class="d-flex flex-row justify-content-center mt-3">
+                                    <p>I Don't have a account ? </p>
+                                    <p class="ms-2"><a href="" class="text-success">Sign Up</a></p>
                                 </div>
-                            </div>
-                        </form>
-                        <!--/ End Form -->
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
+    </div>
     <!--/ End Login -->
 @endsection

@@ -20,10 +20,10 @@
                     <div class="col-lg-4"></div>
                     {{-- track order and login/reg --}}
                     <div class="col-lg-4">
-                        <ul class="d-flex flex-row justify-content-center">
+                        <ul class="d-flex flex-row justify-content-center nav-log">
                             <li class="mr-2 mt-1"><i class="fa-solid fa-headset me-2"></i><a href="{{route('order.track')}}">Track Order</a></li>
                             {{-- log/reg --}}
-                            <div class="">
+                            <div class="log-reg">
                                 {{-- this auth funtion call for login register.once login user show user name and logout otherwise show login and register --}}
                                 @auth
                                     @if (Auth::user()->role=='admin')

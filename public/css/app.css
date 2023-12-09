@@ -67,6 +67,7 @@ section {
 body {
   margin: 0;
   font-family: "Nunito", sans-serif;
+  /* font-family: ; */
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.6;
@@ -115,12 +116,13 @@ nav ul li
     margin-left: 1vh;
 
 }
+
 a{
     text-decoration: none;
-    color: #fff;
+    color: #181717;
 }
 a:hover{
-    color: #f8fafc;
+    color: #2b2c2c;
 }
 .bread-list li{
     list-style-type: none;
@@ -131,3 +133,57 @@ a:hover{
     list-style-type: none;
     text-decoration: none;
 }
+/* nav bar link a */
+.nav-log  li a{
+    text-decoration: none;
+    color: #fff;
+}
+.log_reg_card{
+    height: 80vh;
+    width: 160vh;
+    padding: 3vh;
+    margin: 3vh;
+    margin-left: 25vh;
+}
+.log_reg_img{
+    height: 76vh;
+    width: 85vh;
+    border-radius: 5vh;
+    box-shadow: #181717;
+    padding-bottom: 2vh;
+}
+/* .log_reg_back{
+
+} */
+/* input felied css code in login and reg */
+.has-search .form-control {
+    padding-left: 2.375rem;
+    width: 	23rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+/* login register buttons */
+.log-reg-btn{
+    margin-top: 3vh;
+    width: 23rem;
+    background-color: rgb(138, 138, 214);
+}
+.socil_log{
+    margin-left: 34vh;
+    font-size: 25px;
+}
+.log-reg-form{
+    margin-left: 13.5vh;
+    /* justify-content: center !important; */
+}
+

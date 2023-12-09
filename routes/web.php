@@ -34,3 +34,4 @@ Route::get('/product/track', [OrderController::class, 'orderTrack'])->name('orde
 Route::get('user/login', [FrontendController::class, 'login'])->name('login.form');
 Route::post('user/login', [FrontendController::class, 'loginSubmit'])->name('login.submit');
 Route::get('user/register', [FrontendController::class, 'register'])->name('register.form');
+Route::post('user/register', [FrontendController::class, 'registerSubmit'])->name('register.submit');
