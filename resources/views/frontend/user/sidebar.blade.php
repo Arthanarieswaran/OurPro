@@ -3,13 +3,13 @@
     <div class="sidebar">
         <div class="position-sticky">
             <div class="list-group list-group-flush mx-3">
-              <a href="#" class="list-group-item list-group-item-action py-2 ripple active rounded" aria-current="true">
-                <i class="fa fa-user fa-fw me-3"></i><span>Dashboard <i class="fa fa-arrow-right ms-2"></i></span>
+              <a href="#" class="list-group-item list-group-item-action py-2 mt-4 ripple active rounded" aria-current="true">
+                <i class="fa fa-user fa-fw me-3"></i><span>User Name<i class="fa fa-arrow-right ms-2"></i></span>
               </a>
               <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
                 <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Dashboard</span>
               </a>
-              <a href="#" class="list-group-item list-group-item-action py-2 ripple">
+              <a href="{{route('home')}}" class="list-group-item list-group-item-action py-2 ripple">
                 <i class="fas fa-chart-area fa-fw me-3"></i><span>Home</span>
               </a>
               <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i

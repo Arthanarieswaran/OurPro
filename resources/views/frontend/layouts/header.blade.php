@@ -6,7 +6,7 @@
             $company=DB::table('company_info')->where('status','active')->get();
         @endphp
         {{-- first navabr (sub navbar)--}}
-        <nav>
+        <nav class="first-nav">
             <div class="container-fluid nav bg-dark" style="height: 4vh; width:100%;">
                 {{-- support and mail --}}
                @if ($company)
@@ -51,10 +51,65 @@
         </nav>
         {{-- first navbar end --}}
         {{-- second nav bar (main navbar)--}}
-        <nav>
-            <div class="shadow-sm p-3  bg-white rounded second-nav">
+        <nav class="second-nav">
+            <div class="shadow-sm p-3  bg-white rounded second-nav d-flex flex-row">
+                {{-- logo divition --}}
+                <div class="col-2">
+                    <img class="nav-logo ms-4" src="{{asset('images/nature.png')}}" alt="">
+                </div>
+                {{-- search and list divition --}}
+                <div class="col-lg-2 ms-5 d-block flex-column serch-div">
+                    {{-- serch divtion --}}
+                    <div class="form-group has-search">
+                        {{-- <label for="email" class="form-label">Email <span class="text-danger">*</span></label> --}}
+                        <span class="fa fa-search form-control-feedback" id="email"></span>
+                        <input type="text" name="email" required="required" class="form-control" placeholder="Email" value="{{old('email')}}" style="width: 90vh">
+                        {{-- <span class="fa fa-search form-control-feedback" id="email"></span> --}}
+                        @error('email')
+                            <span class="text-danger">{{$message}}</span>
+                        @enderror
+                    </div>
+                    {{-- list divition --}}
+                    <div class="d-flex flex-row">
+                        <div class="mt-2" style="margin-left: 20vh;">
+                            <ul class="list-group d-flex flex-row  list-unstyled">
+                              <li class="nav-item me-4 text-dark">Home</li>
+                              <li class="nav-item me-4 text-dark ">Shop</li>
+                              {{-- <li class="nav-item me-4 text-dark">Account</li> --}}
+                              <li class="nav-item me-4 text-dark">Pages</li>
+                              <li class="nav-item me-4 text-dark">Blog</li>
+                              <li class="nav-item me-4 text-dark">Docs/Components</li>
+                            </ul>
+                          </div>
+                          <div class="d-flex flex-row mt-2 " style="margin-left: 10vh;">
+                              <ul class="list-group d-flex flex-row list-unstyled">
+                                <li class="nav-item text-dark">Spacial/offer</li><div class="vr ms-3 me-3 mt-1"></div>
+                                <li class="nav-item text-dark">Spacial/Purchase</li>
+                              </ul>
+                          </div>
+                    </div>
+                </div>
+                {{-- cart wishlist divitoin --}}
+                <div class="d-flex flex-row cart-div">
+                    {{-- cart div --}}
+                    <div class="badge  rounded-circle mt-3 " style="background-color: #f9f7f7; height: 35px; width: 35px; margin-left: 30vh;">
+                        <a href="cart" class="list-unstyled text-dark">
+                          <span class="position-absolute  translate-middle p-1 ms-4 bg-danger border border-light rounded-circle">
+                            <span class="">4</span>
+                          </span>
+                          <i class="fa-solid fa-cart-shopping pt-1 text-dark fs-6"></i>
+                        </a>
+                    </div>
+                    {{-- wishlist div --}}
+                    <div class="badge  rounded-circle mt-3 " style="background-color: #f9f7f7; height: 35px; width: 35px; margin-left: 4vh; ">
+                        <span class="position-absolute  translate-middle p-1 ms-4 bg-danger border border-light rounded-circle">
+                          <span class="">4</span>
+                        </span>
+                        <i class="fa-regular fa-heart pt-1 text-dark fs-6"></i>
+                    </div>
+                </div>
 
             </div>
-        </nav>
+        </nav>,
     </div>
 </div>

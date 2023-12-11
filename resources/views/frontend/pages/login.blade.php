@@ -5,12 +5,12 @@
 
 @section('main-content')
     <!-- goto home button and spotted place name -->
-    <div class="breadcrumbs  bg-secondary" style="height: 7vh;">
+    {{-- <div class="breadcrumbs  bg-secondary" style="height: 7vh;">
         <div class="container">
             <div class="row ">
                 <div class="col-12">
                     <div class="bread-inner">
-                        <ul class="bread-list d-flex flex-row mt-3 ">
+                        <ul class="bread-list d-flex flex-row">
                             <li><a href="{{route('home')}}">Home<i class="fa-solid fa-arrow-right ms-2"></i></a></li>
                             <li class="active ms-2"><a href="javascript:void(0);">Login</a></li>
                         </ul>
@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- End goto home button and spotted place name -->
 
 
@@ -26,7 +26,7 @@
     <div>
             <section class="log_reg_back">
                 <div class="container-flued ">
-                    <div class="log_reg_card mt-5 shadow bg-white  rounded d-flex flex-row">
+                    <div class="log_reg_card mt-1 shadow bg-white  rounded d-flex flex-row">
                         <div class="col-6">
                              <img class="log_reg_img" src="{{asset('images/logreg.png')}}" alt="">
                         </div>

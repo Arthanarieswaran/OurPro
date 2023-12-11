@@ -132,7 +132,7 @@ a:hover{
 }
 .bread-list li{
     list-style-type: none;
-    font-size: 16px;
+    font-size: 13px;
 }
 .bread-list li a{
     color: #343a40;
@@ -157,6 +157,9 @@ a:hover{
     border-radius: 5vh;
     box-shadow: #181717;
     padding-bottom: 2vh;
+}
+.first-nav ul li{
+    font-size: 13px;
 }
 /* .log_reg_back{
 
@@ -199,11 +202,21 @@ a:hover{
 {
     height: 13vh;
 }
+.nav-logo{
+    height: 4rem;
+    width: 4rem;
+}
+.second-nav .serch-div .has-search{
+    margin-left: 20vh;
+}
+.cart-div{
+    margin-left: 35rem;
+}
 
 
 /* side nav bar designs */
 .sidebar{
-    margin-top: 0.rem;
+    margin-top:-1.5rem;
     margin-left: -10px;
     width: 18rem;
     height: 36rem;
