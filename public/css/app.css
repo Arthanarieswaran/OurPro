@@ -36,6 +36,9 @@
   --breakpoint-xl: 1200px;
   --font-family-sans-serif: "Nunito", sans-serif;
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  /* body color : #f7f9fa */
+  /* card or box colors : #ffffff */
+  /* wight nav bar color :#fafbfc */
 }
 
 *,
@@ -73,7 +76,10 @@ body {
   line-height: 1.6;
   color: #212529;
   text-align: left;
-  background-color: #f8fafc;
+  background-color: #f0f3f5;
+  /* body color : #f7f9fa */
+  /*side bar, card or box colors : #ffffff */
+  /* wight nav bar color :#fafbfc */
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -187,3 +193,23 @@ a:hover{
     /* justify-content: center !important; */
 }
 
+
+/* second nav bar designs */
+.second-nav
+{
+    height: 13vh;
+}
+
+
+/* side nav bar designs */
+.sidebar{
+    margin-top: 0.rem;
+    margin-left: -10px;
+    width: 18rem;
+    height: 36rem;
+    background-color: #ffffff;
+}
+.sidebar ul li{
+    color: #2b2c2c;
+    list-style-type: none;
+}

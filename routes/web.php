@@ -40,4 +40,4 @@ Route::post('user/register', [FrontendController::class, 'registerSubmit'])->nam
 Route::get('user/logout', [FrontendController::class, 'logout'])->name('user.logout');
 
 // user controll moves
-Route::get('dashborad', [HomeController::class, 'index'])->name('user');
+Route::get('user-index', [HomeController::class, 'index'])->name('user.profile');

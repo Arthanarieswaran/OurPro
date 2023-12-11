@@ -28,9 +28,9 @@
                                 @auth
                                     <div class="d-flex flex-row mt-1 ms-5">
                                         @if (Auth::user()->role=='admin')
-                                            <li><i class="ti-user"></i> <a href="{{route('admin')}}"  target="_blank">Dashboard</a></li>
+                                            <li><i class="ti-user"></i> <a href="{{route('admin')}}" >Dashboard</a></li>
                                         @else
-                                            <li><i class="ti-user"></i> <a href="{{route('user')}}"  target="_blank"><i class="fa-solid fa-user me-2"></i>{{Auth()->user()->name}}<span class="ms-2">/</span></a></li>
+                                            <li><i class="ti-user"></i> <a href="{{route('user.profile')}}"  ><i class="fa-solid fa-user me-2"></i>{{Auth()->user()->name}}<span class="ms-2">/</span></a></li>
                                         @endif
                                             <li><i class="ti-power-off"></i> <a href="{{route('user.logout')}}">&nbsp;&nbsp;<i class="fa-solid fa-right-from-bracket me-2"></i>Logout</a></li>
                                         @else
@@ -52,7 +52,7 @@
         {{-- first navbar end --}}
         {{-- second nav bar (main navbar)--}}
         <nav>
-            <div>
+            <div class="shadow-sm p-3  bg-white rounded second-nav">
 
             </div>
         </nav>
