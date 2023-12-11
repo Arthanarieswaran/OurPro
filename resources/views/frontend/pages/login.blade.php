@@ -40,27 +40,34 @@
                                     </div>
                                 </div>
                                 {{-- login form --}}
-                                <form action="" class="log-reg-form">
+                                <form class="form log-reg-form" method="post" action="{{route('login.submit')}}">
+                                    @csrf
                                           {{-- email divition --}}
                                         <div class="mt-3 mb-3">
                                             <div class="form-group has-search">
-                                                <label for="email" class="form-label">Email</label>
+                                                <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
                                                 <span class="fa fa-search form-control-feedback" id="email"></span>
-                                                <input type="text" class="form-control" placeholder="Email">
+                                                <input type="text" name="email" required="required" class="form-control" placeholder="Email" value="{{old('email')}}">
+                                                @error('email')
+                                                    <span class="text-danger">{{$message}}</span>
+                                                @enderror
                                             </div>
                                         </div>
                                         {{-- password divition --}}
                                         <div class="mt-3 mb-3">
                                             <div class="form-group has-search">
-                                                <label for="password" class="form-label">Password</label>
+                                                <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
                                                 <span class="fa fa-key form-control-feedback" class="password"></span>
-                                                <input type="text" class="form-control" placeholder="Password">
+                                                <input type="password" name="password" class="form-control" required="required" placeholder="Password" value="{{old('password')}}">
+                                                @error('password')
+                                                    <span class="text-danger">{{$message}}</span>
+                                                @enderror
                                             </div>
                                         </div>
                                         {{-- button divition --}}
                                         <div>
                                             <div class="col-md-4 col-sm-6 mb-3 ">
-                                                <button class="btn  log-reg-btn">Sign In</button>
+                                                <button class="btn  log-reg-btn" type="submit">Sign In</button>
                                             </div>
                                         </div>
                                 </form>
@@ -77,7 +84,7 @@
                                 </div>
                                 <div class="d-flex flex-row justify-content-center mt-3">
                                     <p>I Don't have a account ? </p>
-                                    <p class="ms-2"><a href="" class="text-success">Sign Up</a></p>
+                                    <p class="ms-2"><a href="{{route('register.form')}}" class="text-success">Sign Up</a></p>
                                 </div>
                         </div>
                     </div>

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\FrontendController;
@@ -35,3 +36,8 @@ Route::get('user/login', [FrontendController::class, 'login'])->name('login.form
 Route::post('user/login', [FrontendController::class, 'loginSubmit'])->name('login.submit');
 Route::get('user/register', [FrontendController::class, 'register'])->name('register.form');
 Route::post('user/register', [FrontendController::class, 'registerSubmit'])->name('register.submit');
+// logout controller
+Route::get('user/logout', [FrontendController::class, 'logout'])->name('user.logout');
+
+// user controll moves
+Route::get('dashborad', [HomeController::class, 'index'])->name('user');

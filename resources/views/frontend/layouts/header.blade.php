@@ -26,18 +26,20 @@
                             <div class="log-reg">
                                 {{-- this auth funtion call for login register.once login user show user name and logout otherwise show login and register --}}
                                 @auth
-                                    @if (Auth::user()->role=='admin')
-                                        <li><i class="ti-user"></i> <a href="{{route('admin')}}"  target="_blank">Dashboard</a></li>{{--function bending--}}
-                                     @else
-                                        <li><i class="ti-user"></i> <a href="{{route('user')}}"  target="_blank">Dashboard</a></li>{{--function bending--}}
-                                    @endif
-                                        <li><i class="ti-power-off"></i> <a href="{{route('user.logout')}}">Logout</a></li>{{--function bending--}}
-                                    @else
-                                        <ul class="d-flex flex-row mr-2 mt-1 position-fixed">
-                                            <i class="fa-solid fa-right-to-bracket text-light me-2 mt-1"></i>
-                                            <li><a href="{{route('login.form')}}">Login /</a> </li>
-                                            <li>&nbsp;<a href="{{route('register.form')}}">Register</a></li>
-                                        </ul>
+                                    <div class="d-flex flex-row mt-1 ms-5">
+                                        @if (Auth::user()->role=='admin')
+                                            <li><i class="ti-user"></i> <a href="{{route('admin')}}"  target="_blank">Dashboard</a></li>
+                                        @else
+                                            <li><i class="ti-user"></i> <a href="{{route('user')}}"  target="_blank"><i class="fa-solid fa-user me-2"></i>{{Auth()->user()->name}}<span class="ms-2">/</span></a></li>
+                                        @endif
+                                            <li><i class="ti-power-off"></i> <a href="{{route('user.logout')}}">&nbsp;&nbsp;<i class="fa-solid fa-right-from-bracket me-2"></i>Logout</a></li>
+                                        @else
+                                            <ul class="d-flex flex-row mr-2 mt-1 position-fixed">
+                                                <i class="fa-solid fa-right-to-bracket text-light me-2 mt-1"></i>
+                                                <li><a href="{{route('login.form')}}">Login /</a> </li>
+                                                <li>&nbsp;<a href="{{route('register.form')}}">Register</a></li>
+                                            </ul>
+                                    </div>
                                 @endauth
 
                             </div>
