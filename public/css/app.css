@@ -226,3 +226,12 @@ a:hover{
     color: #2b2c2c;
     list-style-type: none;
 }
+
+/* category  */
+.cat-img{
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50px 50px;
+    box-shadow: #212529;
+    border: 2px solid seagreen;
+}
