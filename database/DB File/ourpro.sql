@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2023 at 12:44 PM
+-- Generation Time: Dec 15, 2023 at 12:51 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,6 +20,32 @@ SET time_zone = "+00:00";
 --
 -- Database: `ourpro`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `brands`
+--
+
+CREATE TABLE `brands` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(191) NOT NULL,
+  `slug` varchar(191) NOT NULL,
+  `status` enum('active','inactive') NOT NULL DEFAULT 'active',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `brands`
+--
+
+INSERT INTO `brands` (`id`, `title`, `slug`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Adidas', 'adidas', 'active', '2020-08-14 04:23:00', '2020-08-14 04:23:00'),
+(2, 'Nike', 'nike', 'active', '2020-08-14 04:23:08', '2020-08-14 04:23:08'),
+(3, 'Kappa', 'kappa', 'active', '2020-08-14 04:23:48', '2020-08-14 04:23:48'),
+(4, 'Prada', 'prada', 'active', '2020-08-14 04:24:08', '2020-08-14 04:24:08'),
+(6, 'Brand', 'brand', 'active', '2020-08-17 20:50:31', '2020-08-17 20:50:31');
 
 -- --------------------------------------------------------
 
@@ -89,6 +115,7 @@ CREATE TABLE `product_info` (
   `product_name` varchar(255) DEFAULT NULL,
   `product_content` varchar(255) DEFAULT NULL,
   `slug` varchar(20) DEFAULT NULL,
+  `cat_id` int(11) DEFAULT NULL,
   `stock` int(11) DEFAULT NULL,
   `status` varchar(11) DEFAULT 'active',
   `old_rate` int(11) DEFAULT NULL,
@@ -114,6 +141,42 @@ CREATE TABLE `product_info` (
   `munthi_color` varchar(45) DEFAULT NULL,
   `body_color` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `product_info`
+--
+
+INSERT INTO `product_info` (`id`, `product_name`, `product_content`, `slug`, `cat_id`, `stock`, `status`, `old_rate`, `new_rate`, `color`, `material`, `saree_length`, `blous_length`, `work_type`, `stich_type`, `product_type`, `product_work_type`, `product_method_type`, `product_img`, `product_img_1`, `product_img_2`, `product_img_3`, `product_details_1`, `product_details_2`, `product_details_3`, `product_details_4`, `product_details_5`, `munthi_color`, `body_color`) VALUES
+(1, 'test-1', NULL, NULL, 1, NULL, 'active', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 'test-2', NULL, NULL, 1, NULL, 'active', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 'test-3', NULL, NULL, 3, NULL, 'active', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 'test-4', NULL, NULL, 1, NULL, 'active', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(5, 'test-5', NULL, NULL, 4, NULL, 'active', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_reviews`
+--
+
+CREATE TABLE `product_reviews` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `product_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `rate` tinyint(4) NOT NULL DEFAULT 0,
+  `review` text DEFAULT NULL,
+  `status` enum('active','inactive') NOT NULL DEFAULT 'active',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `product_reviews`
+--
+
+INSERT INTO `product_reviews` (`id`, `user_id`, `product_id`, `rate`, `review`, `status`, `created_at`, `updated_at`) VALUES
+(1, 3, 2, 5, 'nice product', 'active', '2020-08-15 07:44:05', '2020-08-15 07:44:05'),
+(2, 2, 9, 5, 'nice', 'active', '2020-08-17 21:08:14', '2020-08-17 21:18:31');
 
 -- --------------------------------------------------------
 
@@ -147,6 +210,13 @@ INSERT INTO `users` (`id`, `name`, `email`, `otp`, `email_verified_at`, `status`
 --
 
 --
+-- Indexes for table `brands`
+--
+ALTER TABLE `brands`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `brands_slug_unique` (`slug`);
+
+--
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
@@ -168,6 +238,14 @@ ALTER TABLE `product_info`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `product_reviews`
+--
+ALTER TABLE `product_reviews`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product_reviews_user_id_foreign` (`user_id`),
+  ADD KEY `product_reviews_product_id_foreign` (`product_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -177,6 +255,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `brands`
+--
+ALTER TABLE `brands`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -194,7 +278,13 @@ ALTER TABLE `company_info`
 -- AUTO_INCREMENT for table `product_info`
 --
 ALTER TABLE `product_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `product_reviews`
+--
+ALTER TABLE `product_reviews`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
